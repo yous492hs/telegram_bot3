@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: telegram-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
+    envVars:
+      - key: TOKEN
+        value: 7710893099:AAH3WJjPzexg9HDmkh9LijA-7g6U8pqUT2s
