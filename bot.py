@@ -1,15 +1,22 @@
-import telebot
 import os
+import telebot
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-bot = telebot.TeleBot(BOT_TOKEN)
+# نقرأ التوكن من متغيّر البيئة
+TOKEN = os.environ.get("TOKEN")
 
-@bot.message_handler(commands=['start'])
-def send_welcome(message):
-    bot.reply_to(message, "هلا بيك! البوت يشتغل تمام.")
+# نتاكد التوكن موجود
+if not TOKEN:
+    print("Error: TOKEN is not set in environment variables.")
+    exit()
 
+# إنشاء البوت
+bot = telebot.TeleBot(TOKEN)
+
+# رد بسيط على أي رسالة
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-    bot.reply_to(message, message.text)
+    bot.reply_to(message, "هلا حبي، استلمت رسالتك!")
 
+# تشغيل البوت
+print("البوت اشتغل...")
 bot.infinity_polling()
