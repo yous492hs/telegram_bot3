@@ -1,3 +1,3 @@
 import os
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = 7710893099:AAH3WJjPzexg9HDmkh9LijA-7g6U8pqUT2s
